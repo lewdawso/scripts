@@ -1,0 +1,51 @@
+syntax on
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"tabs/indents
+set tabstop=4       " The width of a TAB is set to 4.
+                    " Still it is a \t. It is just that
+                    " Vim will interpret it to be having
+                    " a width of 4.
+
+set shiftwidth=4    " Indents will have a width of 4
+
+set softtabstop=4   " Sets the number of columns for a TAB
+
+set expandtab       " Expand TABs to spaces
+
+set number
+set ttyfast
+set textwidth=80
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" have filename visible in status line
+set laststatus=2
+
+"set visual bell, but set action to empty => no beep or flash
+set vb
+set t_vb=
+
+" background
+set background=dark
+
+"pathogen runtime path manipulation
+execute pathogen#infect()
+
+au FileType gitcommit set tw=72
+autocmd FileType perl set noexpandtab
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"split screen
+set splitright
+set splitbelow
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"relative number
+set relativenumber
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set wildmenu 
