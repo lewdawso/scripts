@@ -1,8 +1,22 @@
-syntax on
+" lewdawso's .vimrc
+" source at github.com/scripts/dotfiles/vimrc
+
+" lots of good stuff for a starting point / base .vimrc at vim.wikia.com/wiki/Example_vimrc
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" enable syntax highlighting
+syntax on
+
+" better command line completion
+set wildmenu 
+
+" highlight searches
+set hlsearch
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "tabs/indents
+
 set tabstop=4       " The width of a TAB is set to 4.
                     " Still it is a \t. It is just that
                     " Vim will interpret it to be having
@@ -14,14 +28,25 @@ set softtabstop=4   " Sets the number of columns for a TAB
 
 set expandtab       " Expand TABs to spaces
 
-set number
 set ttyfast
 set textwidth=80
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" line numbers
+
+set number
+set relativenumber
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " have filename visible in status line
 set laststatus=2
+
+" display curser position in status line
+set ruler
+
+" set the command window height to 2 lines
+set cmdheight=2
 
 "set visual bell, but set action to empty => no beep or flash
 set vb
@@ -33,19 +58,25 @@ set background=dark
 "pathogen runtime path manipulation
 execute pathogen#infect()
 
-au FileType gitcommit set tw=72
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" file specific autocmd's
+
+autocmd FileType gitcommit set tw=72
 autocmd FileType perl set noexpandtab
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 "split screen
+
 set splitright
 set splitbelow
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"relative number
-set relativenumber
+" mappings
 
+let mapleader = ","
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set wildmenu 
+nnoremap <leader>l :set list!<cr>
+nnoremap <leader>ev :vsp $MYVIMRC<cr>
+
+" make Y behave like D,C by yanking until the end of the line rather than yy
+map Y y$
