@@ -75,8 +75,29 @@ set splitbelow
 
 let mapleader = ","
 
+" jump to next error with Ctrl+n and previous error with Ctrl-m. Close the
+" quickfix window with <leader>a.
+map <C-n> :cnext<CR>
+map <C-m> :cprevious<CR>
+nnoremap <leader>a :cclose<CR>
+
+" open .vimrc with <leader>ev
 nnoremap <leader>l :set list!<cr>
 nnoremap <leader>ev :vsp $MYVIMRC<cr>
 
 " make Y behave like D,C by yanking until the end of the line rather than yy
 map Y y$
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" go mappings
+
+augroup go
+    autocmd!
+
+    " GoBuild
+    autocmd FileType go nmap <leader>b <Plug>(go-build)
+    " GoTest
+    autocmd FileType go nmap <leader>t <Plug>(go-test)
+    " GoMetaLinter
+    autocmd FileType go nmap <leader>ml <Plug>(go-metalinter)
+augroup END
